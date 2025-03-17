@@ -1,0 +1,30 @@
+name: Deploy to Hostinger FTP
+
+on:
+  push:
+    branches:
+      - main  # Runs on every push to the main branch
+
+jobs:
+  deploy:
+    name: Build and Upload via FTP
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Next.js site
+        run: npm run build
+
+      - name: Deploy to Hostinger via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server: ftp://145.223.105.203  # Your Hostinger FTP IP
+          username: u879210297.evolvix.pro  # Your FTP username
+          password: ${{ secrets.FTP_PASSWORD }}  # Securely stored in GitHub Secrets
+          local-dir: out/  # Upload 'out/' folder
+          server-dir: public_html/  
