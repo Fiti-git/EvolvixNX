@@ -27,4 +27,4 @@ jobs:
           username: u879210297.evolvix.pro  # Your FTP username
           password: ${{ secrets.FTP_PASSWORD }}  # Securely stored in GitHub Secrets
           local-dir: out/  # Upload 'out/' folder
-          server-dir: public_html/  
+          server-dir: /  
