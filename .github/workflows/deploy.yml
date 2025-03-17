@@ -23,7 +23,7 @@ jobs:
       - name: Deploy to Hostinger via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: ftp://145.223.105.203  # Your Hostinger FTP IP
+          server: 145.223.105.203
           username: u879210297.evolvix.pro  # Your FTP username
           password: ${{ secrets.FTP_PASSWORD }}  # Securely stored in GitHub Secrets
           local-dir: out/  # Upload 'out/' folder
